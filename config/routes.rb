@@ -25,6 +25,7 @@ devise_scope :customer do
 end
   scope module: :public do
     root "homes#top"
+    resource :customers, only: [:show, :update]
     get 'posts/show'
     get 'cosmetics/index'
     get 'cosmetics/show'

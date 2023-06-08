@@ -1,1 +1,49 @@
-a
+<div class="container">
+  <div class="row my-3">
+    <div class="col-sm-8 px-sm-0 offset-sm-1">
+      <h2>マイページ</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3 px-sm-0 offset-sm-1">
+      <h4>登録情報</h4>
+    </div>
+    <div class="col-sm-4 px-sm-0">
+      <%#= link_to "編集する", edit_customers_path, class:"btn btn-success px-4 mb-2" %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 px-sm-0 offset-sm-1">
+      <table class="table table-bordered">
+        <tr>
+          <th class="table-active">お名前</th>
+          <td><%= current_customer.last_name %>&nbsp;<%= current_customer.first_name %></td>
+        </tr>
+        <tr>
+          <th class="table-active">フリガナ</th>
+          <td><%= current_customer.last_name_kana %>&nbsp;<%= current_customer.first_name_kana %></td>
+        </tr>
+
+        <tr>
+          <th class="table-active">メールアドレス</th>
+           <td><%= current_customer.email %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-3 px-sm-0 offset-sm-1"><h4>使いたいコスメ</h4></div>
+    <div class="col-sm-3 px-sm-0">
+      <%#= link_to " 一覧を見る", orders_path, class: "glyphicon glyphicon-folder-open btn btn-info" %>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-sm-3 px-sm-0 offset-sm-1"><h4>使ったコスメ</h4></div>
+    <div class="col-sm-3 px-sm-0">
+      <%#= link_to " 一覧を見る", orders_path, class: "glyphicon glyphicon-folder-open btn btn-info" %>
+    </div>
+  </div>
+  
+</div>
