@@ -1,2 +1,16 @@
 <h1>Public::Cosmetics#show</h1>
 <p>Find me in app/views/public/cosmetics/show.html.erb</p>
+<div class="container mt-5 mb-5">
+	<div class="row text-center text-xs-center text-sm-left text-md-left ">
+    <div class="col-xs-12 col-sm-12 col-md-6 mx-auto text-right">
+    <%= image_tag (@cosmetic['smallImageUrls'][0])  %>
+    </div>
+    
+    <div class="col-xs-12 col-sm-12 col-md-6 item-details mx-auto">
+      <h3><%= link_to cosmetic.name, "#{cosmetic.url}" %></h3>
+
+  <h4><%= number_with_delimiter(cosmetic.price) %>円</h4>
+
+      </div> 
+  </div>
+</div>

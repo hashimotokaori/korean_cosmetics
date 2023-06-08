@@ -1,0 +1,16 @@
+<!--- @cosmetics.each do |cosmetic|-->
+<!--  = cosmetic.title-->
+<!--  = cosmetic.author-->
+<!--  = cosmetic.item_caption-->
+<!--  = link_to (image_tag(cosmetic.medium_image_url)), cosmetic_url-->
+
+
+<div class="container">
+     <div class = "search-box" >
+    <%= form_with url: cosmetics_search_path, method: :get, local: true do |f| %> 
+        <div class = "form-group" >
+            <%= f.text_field :keyword, class: "form-control" %>
+            <%= f.submit '検索', class: "form-control btn btn-success" %>
+        </div>
+    <% end %>
+</div>

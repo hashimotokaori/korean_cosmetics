@@ -14,8 +14,25 @@
     
      <%= render "layouts/header" %>
      <div class="container">
+<!--     <div class = "search-box" >-->
+<!--    <%#= form_with url: cosmetics_search_path, method: :get, local: true do |f| %> -->
+<!--        <div class = "form-group" >-->
+<!--            <%#= f.text_field :keyword, class: "form-control" %>-->
+<!--            <%#= f.submit '検索', class: "form-control btn btn-success" %>-->
+<!--        </div>-->
+<!--    <%# end %>-->
+<!--</div>-->
+</div>
+    <!-- <div class="container">-->
+    <!--   .search-box-->
+  　　<!--　　= form_with url: cosmetics_search_path, method: :get, local: true do |f|-->
+    <!--  　.form-group-->
+    <!--    　= f.text_field :keyword, class: "form-control"-->
+    <!--    　= f.submit '本の題名を検索', class: "form-control btn btn-success"-->
+　　　　<!--- if @cosmetics.present?-->
+  　　<!--　　　　= render 'cosmetics/cosmetic'-->
 
-     </div>
+    <!-- </div>-->
     
     
     <%= yield %>
@@ -25,7 +42,8 @@
      <div class="container mt-5">
      <div class="row">
      <div class="mx-auto">
-     <p class="text-center"> CopyRight Infratop.inc</p>
+     <p class="text-center"> 
+     CopyRight Infratop.inc</p>
   </footer>
   
 </html>
