@@ -1,7 +1,9 @@
 class Post < ApplicationRecord
     
-    validates :caption,  presence: true
-       validates :cosmetic_id, presence: true
-       validates :customer_id,  presence: true
+    belongs_to :customer
+    has_many :post_comments, dependent: :destroy
+    
+       validates :caption,  presence: true
+
 
 end

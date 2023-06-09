@@ -26,8 +26,11 @@ end
   scope module: :public do
     root "homes#top"
     resource :customers, only: [:show, :update]
-    resources :posts, only: [:new, :create, :show]
-    post 'posts' => 'posts#create'
+    
+    resources :posts, only: [:new, :create, :index, :show, :destroy] do
+    resources :post_comments, only: [:create, :destroy]
+  end
+    
     get 'cosmetics/index'
     get 'cosmetics/show'
     get 'cosmetics/search'

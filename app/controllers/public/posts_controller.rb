@@ -13,12 +13,18 @@ class Public::PostsController < ApplicationController
   
   def create
     @post = Post.new(post_params)
-
+    @post.customer_id = current_customer.id
     @post.save!
-    redirect_to 'post_path'
+    redirect_to 'posts_path'
+  end
+  
+  def index
+    @posts = Post.page(params[:page])
   end
   
   def show
+    @post = Post.find(params[:id])
+    @post_comment = PostComment.new
   end
   
   private
