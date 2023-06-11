@@ -7,5 +7,7 @@ class CreatePosts < ActiveRecord::Migration[6.1]
 
       t.timestamps
     end
+  
+  # add_foreign_key :cosmeticcases, :cosmetics, column: :cosmetic_id , primary_key: :isbn
   end
 end
