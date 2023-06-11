@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 2023_06_09_053029) do
     t.string "introduction", null: false
     t.integer "price", null: false
     t.string "image_id"
+    t.text "caption"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

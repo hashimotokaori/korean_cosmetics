@@ -1,10 +1,12 @@
 <div>
   <%#= image_tag @post_image.get_image %>
   <!--<p>ショップ名：<#%= @post_image.shop_name %></p>-->
-  <!--<p>説明：<%= @post.caption %></p>-->
+  <p>気になる理由：<%= @post.caption %></p>
   <!--<p>投稿ユーザー画像：<#%= image_tag @post_image.user.get_profile_image(100,100) %></p>-->
-  <!--<p>ユーザーネーム：<%= @post.customer %></p>-->
-  <!--<p>投稿日：<%= @post.created_at.strftime('%Y/%m/%d') %></p>-->
+  <p>評価：<%#= @post.created_at.strftime('%Y/%m/%d') %></p>
+  <p>感想：<%#= @post.created_at.strftime('%Y/%m/%d') %></p>
+ 
+  
   <% if @post.customer == current_customer %>
     <%= link_to "削除", post_path(@post), method: :delete %>
   <% end %>

@@ -5,6 +5,7 @@ class CreateCosmetics < ActiveRecord::Migration[6.1]
       t.string :introduction, null: false
       t.integer :price, null: false
       t.string :image_id
+      t.text:caption
 
       t.timestamps
     end

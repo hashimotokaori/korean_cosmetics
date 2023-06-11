@@ -1,10 +1,11 @@
 class Cosmetic < ApplicationRecord
     
   has_one_attached :image
+  has_many :posts, dependent: :destroy
   validates :name, {presence: true}
   validates :price, {presence: true}
   validates :introduction, presence: true
-    
+  validates :caption,  presence: true  
     
     
  def get_image(width, height)
