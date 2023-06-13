@@ -5,23 +5,18 @@ class Public::CosmeticsController < ApplicationController
   end
   
   def search
-    if params[:keyword]
-      @cosmetics = RakutenWebService::Ichiba::Item.search(keyword: params[:keyword])
-      if @keyword.present?
-      results = RakutenWebService::Ichiba::Item.search({
-      keyword: @keyword,
-      })
-      results.each do |result|
-        cosmetic = Cosmetic.new(read(result))
-        @cosmetics << cosmetic
-      end
-      end
-    end
-    @cosmetics.each do |cosmetic|
-      unless Cosmetic.all.include?(cosmetic)
-        cosmetic.save
+    cosmetics = RakutenWebService::Ichiba::Item.search(keyword: params[:keyword])
+    results = cosmetics.map { |cosmetic| Cosmetic.new(read(cosmetic))}
+    cosmetic_item_codes = Cosmetic.pluck(:item_code)
+    @cosmetics = results.map do |result|    
+      unless result.item_code.in?(cosmetic_item_codes)
+       result.save! 
+       result
+      else
+        Cosmetic.find_by(item_code: result.item_code)
       end
     end
+   
   end
     
     
@@ -49,18 +44,16 @@ class Public::CosmeticsController < ApplicationController
   private
   #「楽天APIのデータから必要なデータを絞り込む」、且つ「対応するカラムにデータを格納する」メソッドを設定していきます。
   def read(result)
-    name = result["name"]
-    introduction = result["introduction"]
+    name = result["itemName"]
     url = result["itemUrl"]
-    isbn = result["isbn"]
-    image_url = result["mediumImageUrl"].gsub('?_ex=120x120', '')
-    price = result["price"]
-    caption = result["caption"]
+    item_code = result["itemCode"]
+    image_url = result["mediumImageUrls"]&.first
+    price = result["itemPrice"]
+    caption = result["itemCaption"]
     {
       name: name,
-      introduction: introduction,
       url: url,
-      isbn: isbn,
+      item_code: item_code,
       image_url: image_url,
       price: price,
       caption: caption

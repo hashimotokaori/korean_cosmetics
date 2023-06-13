@@ -5,8 +5,7 @@ class Cosmetic < ApplicationRecord
   
   validates :name, {presence: true}
   validates :price, {presence: true}
-  validates :introduction, presence: true
-  validates :caption,  presence: true  
+  validates :item_code,  presence: true  
     
     
  def get_image(width, height)

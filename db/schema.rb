@@ -26,11 +26,9 @@ ActiveRecord::Schema.define(version: 2023_06_09_053029) do
 
   create_table "cosmetics", force: :cascade do |t|
     t.string "name", null: false
-    t.string "introduction", null: false
     t.integer "price", null: false
-    t.string "image_id"
-    t.text "caption"
-    t.bigint "isbn", null: false
+    t.text "caption", null: false
+    t.string "item_code", null: false
     t.string "url"
     t.string "image_url"
     t.datetime "created_at", precision: 6, null: false
