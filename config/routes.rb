@@ -12,6 +12,10 @@ Rails.application.routes.draw do
 }
   namespace :admin do
   get "/" => "homes#top"
+  resources :customers, only: [:index, :show, :edit, :update]
+  # resources :items, only: [:index, :create, :new, :show, :edit, :update]
+
+    # get "/search" => "items#search"
   end
   
   # 顧客用

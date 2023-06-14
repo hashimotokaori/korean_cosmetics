@@ -1,4 +1,5 @@
 class Public::PostsController < ApplicationController
+  
   def new
     return redirect_to root_path unless params[:cosmetic_id]
     @post = Post.new  

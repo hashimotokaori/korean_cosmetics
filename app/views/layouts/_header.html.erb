@@ -37,7 +37,7 @@
             <li class="nav-item"><%#= link_to "ジャンル一覧", admin_genres_path, class:"btn btn-success" %></li>
             [&nbsp;]
             <li class="nav-item"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class:"btn btn-success" %></li>
-            <%= render "layouts/search" %>
+            <%#= render "layouts/search" %>
           <% else %>
            <!--ログインしていない時　-->
            <li class="nav-item"><%= link_to 'ゲストログイン（閲覧用）', customers_guest_sign_in_path, method: :post, class:"btn btn-success" %></li>

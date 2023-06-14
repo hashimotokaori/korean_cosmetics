@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 2023_06_09_053029) do
     t.string "last_name", null: false
     t.string "last_name_kana", null: false
     t.string "first_name_kana", null: false
+    t.boolean "is_customer_status", default: false, null: false
     t.boolean "is_deleted", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

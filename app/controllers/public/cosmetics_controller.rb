@@ -30,7 +30,7 @@ class Public::CosmeticsController < ApplicationController
     
   
   def index
-    @cosmetics_all = Cosmetic.all
+    @cosmetics = Cosmetic.all
 
   end
 
