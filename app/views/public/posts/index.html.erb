@@ -6,7 +6,6 @@
   <p>気になる理由：<%= post.caption %></p>
 
 </div>
-<% end %>
-
-<%= link_to "使ったコスメに登録", cosmetics_index_path, class:"btn btn-success" %>
+<%= link_to "使ったコスメに登録", post_update_review_path(post.id), class:"btn btn-success" %>
 <%= link_to "使いたいコスメから削除", posts_path, class:"btn btn-success" %>
+<% end %>

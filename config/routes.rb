@@ -31,13 +31,16 @@ end
     root "homes#top"
     resource :customers, only: [:show, :update]
     
-    resources :posts, only: [:new, :create, :index, :show, :destroy] do
-    resources :post_comments, only: [:create, :destroy]
-  end
+    get 'posts/update_review/:id' => "posts#update_review", as: 'post_update_review'
+    resources :posts, only: [:new, :create, :index, :show, :destroy, :update] do
+      resources :post_comments, only: [:create, :destroy]
+    end
+    
     get 'cosmetics/new'
     get 'cosmetics/index'
     get 'cosmetics/search'
     get 'cosmetics/:id' => "cosmetics#show"
+  
     resource :customers, only: [:show, :edit]
   end
   

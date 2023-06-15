@@ -1,0 +1,8 @@
+<h2>使ったコスメに登録する</h2>
+<%#= image_tag (cosmetic['smallImageUrls'][0])  %>
+<%= form_with model: @post, method: :patch do |f| %>
+  <h4>評価</h4>
+  <p>感想：<%= f.text_area :review %></p>
+  <%= f.submit "内容を保存", class:"btn btn-success" %>
+<% end %>
+

@@ -4,7 +4,7 @@
   <p>気になる理由：<%= @post.caption %></p>
   <!--<p>投稿ユーザー画像：<#%= image_tag @post_image.user.get_profile_image(100,100) %></p>-->
   <p>評価：<%#= @post.created_at.strftime('%Y/%m/%d') %></p>
-  <p>感想：<%#= @post.created_at.strftime('%Y/%m/%d') %></p>
+  <p>感想：<%= @post.review %></p>
  
   
   <% if @post.customer == current_customer %>

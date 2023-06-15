@@ -36,8 +36,22 @@ class Public::PostsController < ApplicationController
     redirect_to posts_path
   end
   
+  def update_review
+    @post = Post.find(params[:id])
+  end
+  
+  def update
+    @post = Post.find(params[:id])
+    if @post.update(post_params)
+      redirect_to post_path(@post)
+    else
+      redirect_to post_update_review_path(@post) 
+    end
+  end
+  
+  
   private
-def post_params
-   params.require(:post).permit(:caption, :cosmetic_id, :customer_id)
-end
+  def post_params
+    params.require(:post).permit(:caption, :cosmetic_id, :customer_id, :review)
+  end
 end
