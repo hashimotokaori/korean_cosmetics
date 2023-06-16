@@ -7,15 +7,14 @@
 
 <div class="row mt-3 mb-3 text-center text-xs-center text-sm-center text-md-left">
 <% @cosmetics.first(10).each do |cosmetic| %>
-
-      <div class="card w-100 bg-transparent border-0" style="width: 18rem;">
- <p class="img-wrap"><%= image_tag cosmetic.image_url  %></p>
- <div class="card-body">
- <p class="item-details item-name card-text"><%= link_to cosmetic.name, "#{cosmetic.url}" %></p>
- <p class="item-details card-text"><%= number_with_delimiter(cosmetic.price) %>円</p>
- <li class="nav-item"><%= link_to "使いたい", new_post_path(cosmetic_id: cosmetic.id), method: :get, class:"btn btn-success" %></li>
-</div>
+  <div class="card w-100 bg-transparent border-0" style="width: 18rem;">
+  <p class="img-wrap"><%= image_tag cosmetic.image_url  %></p>
+  <div class="card-body">
+  <p class="item-details item-name card-text"><%= link_to cosmetic.name, "#{cosmetic.url}" %></p>
+  <p class="item-details card-text"><%= number_with_delimiter(cosmetic.price) %>円</p>
+  <li class="nav-item"><%= link_to "使いたい", new_post_path(cosmetic_id: cosmetic.id), method: :get, class:"btn btn-success" %></li>
+  </div>
 <% end %>
-</div>
+  </div>
 </div>
 
