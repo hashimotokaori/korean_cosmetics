@@ -49,7 +49,7 @@
   <div class="row mb-2">
     <div class="col-lg-6 px-sm-0 offset-sm-1">
       <%= link_to "編集する", edit_admin_customer_path(@customer.id), class:"btn btn-success my-1 mx-4 px-4" %>
-      <%= link_to "注文履歴一覧を見る", admin_path(id: @customer), class:"btn btn-primary mx-4 px-4" %>
+      <%= link_to "レビュー一覧を見る", admin_posts_path(@post), class:"btn btn-primary mx-4 px-4" %>
     </div>
   </div>
 

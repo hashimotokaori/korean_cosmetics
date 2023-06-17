@@ -1,3 +1,4 @@
+
 <div class="card w-100 bg-transparent border-0" style="width: 18rem;" >
   <p class="img-wrap"><%= image_tag @cosmetic.image_url %></p>
   <div class="card-body">
@@ -8,7 +9,27 @@
 <h2>使ったコスメに登録する</h2>
 <%#= image_tag (cosmetic['smallImageUrls'][0])  %>
 <%= form_with model: @post, method: :patch do |f| %>
-  <h4>評価</h4>
+
+
+  
+  <div id="post_raty"></div>
+   <script>
+      $(document).on('turbolinks:load', function() {
+        let elem = document.querySelector('#post_raty');
+        if (elem == null) return;
+  
+        elem.innerHTML = "評価 : "
+        let opt = {  
+          starOn: "<%= asset_path('star-on.png') %>",
+          starOff: "<%= asset_path('star-off.png') %>",
+          starHalf: "<%= asset_path('star-half.png') %>",
+          scoreName: 'post[rate]',
+        };
+        raty(elem, opt);
+      });
+    </script>
+
+  
   <p>感想：<%= f.text_area :review %></p>
   <%= f.submit "内容を保存", class:"btn btn-success" %>
 <% end %>

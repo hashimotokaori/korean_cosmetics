@@ -1,13 +1,13 @@
 
+
+<% @posts.each do |post| %>
 <!--<div class="card w-100 bg-transparent border-0" style="width: 18rem;" >-->
 <!--  <p class="img-wrap"><#%= image_tag @cosmetic.image_url %></p>-->
 <!--  <div class="card-body">-->
 <!--  <p class="item-details item-name card-text"><#%= link_to @cosmetic.name, "#{@cosmetic.url}" %></p>-->
 <!--  <p class="item-details card-text"><#%= number_with_delimiter(@cosmetic.price) %>円</p>-->
 <!--  </div>-->
-
-<% @posts.each do |post| %>
-<div>
+<!--<div>-->
   <%#= image_tag post_image.get_image %>
   <!--<p>投稿ユーザー画像：<%#= image_tag 'sample-author1.jpg' %></p>-->
   <!--<p>ショップ名：<%#= post_image.shop_name %></p>-->
@@ -15,5 +15,6 @@
 
 </div>
 <%= link_to "使ったコスメに登録", post_update_review_path(post.id), class:"btn btn-success" %>
-<%= link_to "使いたいコスメから削除", posts_path, class:"btn btn-success" %>
+
+<%#= link_to "使いたいコスメから削除", post_path(@post.id), method: :delete,  class:"btn btn-success" %>
 <% end %>

@@ -6,7 +6,7 @@ class Customer < ApplicationRecord
          
   has_many :posts, dependent: :destroy
   has_many :post_comments, dependent: :destroy
-  
+  has_many :cosmetics, dependent: :destroy
          
        validates :last_name,  presence: true
        validates :first_name, presence: true

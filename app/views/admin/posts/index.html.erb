@@ -1,0 +1,26 @@
+<% provide(:title, "注文一覧") %>
+<div class="container">
+  <h2 class="my-5">投稿履歴一覧</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>投稿日時</th>
+        <th>投稿者</th>
+      </tr>      
+      <tbody>
+        <% @posts.each do |post| %>
+        <tr>
+          <td>
+            <%= link_to admin_post_path(post) do%>
+              <%= post.created_at.strftime("%Y-%m-%d %H:%M:%S")%>
+            <% end %>
+          </td>
+          <td><%#= @post.customer.last_name + @post.customer.first_name %></td>
+
+        </tr>
+        <% end %>
+      </tbody>
+    </thead>
+  </table>
+
+</div>
