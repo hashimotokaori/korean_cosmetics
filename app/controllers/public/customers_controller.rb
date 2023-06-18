@@ -1,7 +1,9 @@
 class Public::CustomersController < ApplicationController
    
   def show
-   @posts = Post.all
+   @posts = Post.where(customer_id: current_customer.id)
+   @want_posts = @posts.where.not(caption: nil).where(review: nil, star: nil)
+   @used_posts = @posts.where.not(review: nil, star: nil)
 #   cosmetics = RakutenWebService::Ichiba::Item.search(keyword: params[:keyword])
 #     results = cosmetics.map { |cosmetic| Cosmetic.new(read(cosmetic))}
 #     cosmetic_item_codes = Cosmetic.pluck(:item_code)

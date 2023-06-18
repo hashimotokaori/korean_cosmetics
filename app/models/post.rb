@@ -1,6 +1,7 @@
 class Post < ApplicationRecord
     has_one_attached :image    
     belongs_to :customer
+    belongs_to :cosmetic
     has_many :post_comments, dependent: :destroy
     
        validates :caption,  presence: true

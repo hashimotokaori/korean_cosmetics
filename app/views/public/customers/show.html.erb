@@ -34,22 +34,16 @@
 
   <div class="row">
     <div class="col-sm-3 px-sm-0 offset-sm-1"><h4>使いたいコスメ</h4></div>
-    <div class="col-sm-3 px-sm-0">
+    <div class="col-sm-8 px-sm-0">
        <tbody>
-          <% @posts.each do |post| %>
+          <% @want_posts.each do |post| %>
             <tr>
-              <td class="align-middle"><%= post.created_at.strftime('%Y/%m/%d') %></td>
-              <!--<td class="align-middle"><#%= link_to @item.name, "#{cosmetic.url}" %><br><#%= number_with_delimiter(cosmetic.price) %></td>-->
-              <!--<% end %>-->
-            <!--  <td class="align-middle"><#%= cosmetic.name, "#{cosmetic.url}" %><br><#%= number_with_delimiter(cosmetic.price) %></td>-->
-            <!--  <td class="align-middle" style="word-break:break-all">-->
-            <!--    <#% order.order_details.each do |order_detail| %>-->
-            <!--      <#%= link_to order_detail.item.name,item_path(order_detail.item) %><br>-->
-            <!--    <#% end %>-->
-            <!--  </td>-->
-              <td class="align-middle"><%= link_to "投稿詳細", cosmetics_index_path, class: "btn btn-primary"  %></td>
-            <!--</tr>-->
-
+              <td class="align-middle"><%= post.created_at.strftime('%Y/%m/%d') %></td><br>
+              <td class="align-middle"><%= link_to post.cosmetic.name, "#{post.cosmetic.url}" %><br><%= number_with_delimiter(post.cosmetic.price) %>円</td>
+              <%= form_with model: @post, method: :patch do |f| %>
+              <td class="align-middle"><%= link_to "投稿詳細", post_update_review_path(post.id), class: "btn btn-primary"  %></td>
+              <% end %>
+              <% end %>
         </tbody>
       <%#= link_to " 一覧を見る", orders_path, class: "glyphicon glyphicon-folder-open btn btn-info" %>
     </div>
@@ -57,21 +51,16 @@
   <br>
   <div class="row">
     <div class="col-sm-3 px-sm-0 offset-sm-1"><h4>使ったコスメ</h4></div>
-    <div class="col-sm-3 px-sm-0">
+    <div class="col-sm-8 px-sm-0">
       <tbody>
-          <%# @cosmetics.each do |cosmetic| %>
+        <% @used_posts.each do |post| %>
             <tr>
-              <!--<td class="align-middle"><#%= cosmetic.created_at.strftime('%Y/%m/%d') %></td>-->
-              <!--<td class="align-middle"><#%= link_to @item.name, "#{cosmetic.url}" %><br><#%= number_with_delimiter(cosmetic.price) %></td>-->
-              <!--<#% end %>-->
-            <!--  <td class="align-middle"><#%= cosmetic.name, "#{cosmetic.url}" %><br><#%= number_with_delimiter(cosmetic.price) %></td>-->
-            <!--  <td class="align-middle" style="word-break:break-all">-->
-            <!--    <#% order.order_details.each do |order_detail| %>-->
-            <!--      <#%= link_to order_detail.item.name,item_path(order_detail.item) %><br>-->
-            <!--    <#% end %>-->
-            <!--  </td>-->
-              <td class="align-middle"><%= link_to "投稿詳細", cosmetics_index_path, class: "btn btn-primary"  %></td>
-            <!--</tr>-->
+              <td class="align-middle"><%= post.created_at.strftime('%Y/%m/%d') %></td><br>
+              <td class="align-middle"><%= link_to post.cosmetic.name, "#{post.cosmetic.url}" %><br><%= number_with_delimiter(post.cosmetic.price) %>円</td>
+              <%= form_with model: @post, method: :patch do |f| %>
+              <td class="align-middle"><%= link_to "投稿詳細", post_path(post.id), class: "btn btn-primary"  %></td>
+              <% end %>
+              <% end %>
 
         </tbody>
       <%#= link_to " 一覧を見る", orders_path, class: "glyphicon glyphicon-folder-open btn btn-info" %>

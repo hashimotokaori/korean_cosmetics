@@ -1,9 +1,9 @@
 
 <div class="card w-100 bg-transparent border-0" style="width: 18rem;" >
-  <p class="img-wrap"><%= image_tag @cosmetic.image_url %></p>
+  <p class="img-wrap"><%= image_tag @post.cosmetic.image_url %></p>
   <div class="card-body">
-  <p class="item-details item-name card-text"><%= link_to @cosmetic.name, "#{@cosmetic.url}" %></p>
-  <p class="item-details card-text"><%= number_with_delimiter(@cosmetic.price) %>円</p>
+  <p class="item-details item-name card-text"><%= link_to @post.cosmetic.name, "#{@post.cosmetic.url}" %></p>
+  <p class="item-details card-text"><%= number_with_delimiter(@post.cosmetic.price) %>円</p>
   </div>
 
 <h2>使ったコスメに登録する</h2>

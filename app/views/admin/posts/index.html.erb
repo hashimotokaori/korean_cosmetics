@@ -1,4 +1,4 @@
-<% provide(:title, "注文一覧") %>
+<% provide(:title, "投稿一覧") %>
 <div class="container">
   <h2 class="my-5">投稿履歴一覧</h2>
   <table class="table">
@@ -15,7 +15,7 @@
               <%= post.created_at.strftime("%Y-%m-%d %H:%M:%S")%>
             <% end %>
           </td>
-          <td><%#= @post.customer.last_name + @post.customer.first_name %></td>
+          <td><%= @post.customer.last_name + @post.customer.first_name %></td>
 
         </tr>
         <% end %>

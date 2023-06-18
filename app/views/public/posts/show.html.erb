@@ -1,22 +1,39 @@
 <div class="card w-100 bg-transparent border-0" style="width: 18rem;" >
-  <p class="img-wrap"><%= image_tag @cosmetic.image_url %></p>
+  <p class="img-wrap"><%= image_tag @post.cosmetic.image_url %></p>
   <div class="card-body">
-  <p class="item-details item-name card-text"><%= link_to @cosmetic.name, "#{@cosmetic.url}" %></p>
-  <p class="item-details card-text"><%= number_with_delimiter(@cosmetic.price) %>円</p>
+  <p class="item-details item-name card-text"><%= link_to @post.cosmetic.name, "#{@post.cosmetic.url}" %></p>
+  <p class="item-details card-text"><%= number_with_delimiter(@post.cosmetic.price) %>円</p>
   </div>
 
 <h2>使ったコスメ詳細</h2>
 <div>
-  <%#= image_tag @post_image.get_image %>
-  <!--<p>ショップ名：<#%= @post_image.shop_name %></p>-->
   <p>気になる理由：<%= @post.caption %></p>
-  <!--<p>投稿ユーザー画像：<#%= image_tag @post_image.user.get_profile_image(100,100) %></p>-->
-  <p>評価：<%= @post.raty %></p>
+  
+  <p><div id="post_raty"></div></p>
+  
+  <script>
+  $(document).on('turbolinks:load', function() {
+    let elem = document.querySelector('#post_raty');
+    if (elem == null) return;
+
+    elem.innerHTML = "評価 : "
+    let opt = {  
+      starOn: "<%= asset_path('star-on.png') %>",
+      starOff: "<%= asset_path('star-off.png') %>",
+      starHalf: "<%= asset_path('star-half.png') %>",
+      scoreName: 'post[rate]',
+      readOnly: true,
+      score: "<%= @post.star %>"
+    };
+    raty(elem, opt);
+  });
+</script>
+
   <p>感想：<%= @post.review %></p>
  
   
   <% if @post.customer == current_customer %>
-    <%= link_to "削除", post_path(@post), method: :delete %>
+    <%= link_to "削除", post_path(@post), method: :delete, class:"btn btn-success" %>
   <% end %>
 <!--  <#% if @post.favorited_by?(current_customer) %>-->
 <!--    <p>-->
@@ -50,3 +67,4 @@
     <%= f.submit "送信する" %>
   <% end %>
 </div>
+
