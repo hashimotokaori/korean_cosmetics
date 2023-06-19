@@ -39,6 +39,7 @@
           <% @want_posts.each do |post| %>
             <tr>
               <td class="align-middle"><%= post.created_at.strftime('%Y/%m/%d') %></td><br>
+              <td class="img-wrap"><%= image_tag post.cosmetic.image_url %></td><br>
               <td class="align-middle"><%= link_to post.cosmetic.name, "#{post.cosmetic.url}" %><br><%= number_with_delimiter(post.cosmetic.price) %>円</td>
               <%= form_with model: @post, method: :patch do |f| %>
               <td class="align-middle"><%= link_to "投稿詳細", post_update_review_path(post.id), class: "btn btn-primary"  %></td>
@@ -56,6 +57,7 @@
         <% @used_posts.each do |post| %>
             <tr>
               <td class="align-middle"><%= post.created_at.strftime('%Y/%m/%d') %></td><br>
+              <td class="img-wrap"><%= image_tag post.cosmetic.image_url %></td><br>
               <td class="align-middle"><%= link_to post.cosmetic.name, "#{post.cosmetic.url}" %><br><%= number_with_delimiter(post.cosmetic.price) %>円</td>
               <%= form_with model: @post, method: :patch do |f| %>
               <td class="align-middle"><%= link_to "投稿詳細", post_path(post.id), class: "btn btn-primary"  %></td>
