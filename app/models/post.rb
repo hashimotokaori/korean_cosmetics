@@ -3,6 +3,8 @@ class Post < ApplicationRecord
     belongs_to :customer
     belongs_to :cosmetic
     has_many :post_comments, dependent: :destroy
+    has_many :post_tags, dependent: :destroy
+    has_many :tags, through: :post_tags
     
        validates :caption,  presence: true
     

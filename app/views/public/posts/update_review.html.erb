@@ -10,7 +10,9 @@
 <%#= image_tag (cosmetic['smallImageUrls'][0])  %>
 <%= form_with model: @post, method: :patch do |f| %>
 
-
+<% @post.tags.each do |tag| %>
+    <%= tag.name %>
+<% end %>
   
   <div id="post_raty"></div>
    <script>

@@ -24,6 +24,7 @@ class Public::PostsController < ApplicationController
   
   def index
     @posts = Post.all.page(params[:page])
+    @posts = params[:tag_id].present? ? Tag.find(params[:tag_id]).posts : Post.all
     # @cosmetic = Cosmetic.find(params[:cosmetic_id])
   end
   
@@ -57,6 +58,6 @@ class Public::PostsController < ApplicationController
   
   private
   def post_params
-    params.require(:post).permit(:caption, :cosmetic_id, :customer_id, :review, :star, :image)
+    params.require(:post).permit(:caption, :cosmetic_id, :customer_id, :review, :star, :image, tag_ids: [])
   end
 end

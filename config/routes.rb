@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   namespace :admin do
   get "/" => "customers#index"
   resources :customers, only: [:index, :show, :edit, :update]
-  resources :posts, only: [:index, :show, :update]
+  resources :posts, only: [:index, :show, :destroy, :update]
   # resources :items, only: [:index, :create, :new, :show, :edit, :update]
 
     # get "/search" => "items#search"

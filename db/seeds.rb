@@ -5,7 +5,19 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
  Admin.create!(
    email: "a@a",
    password: "aaaaaaa"
  )
+ 
+ Tag.create!([
+    { name: 'スキンケア' },
+    { name: '化粧下地,ファンデーション' },
+    { name: 'アイブロウ'},
+    { name: 'アイシャドウ'},
+    { name: 'アイライナー'},
+    { name: 'マスカラ'},
+    { name: 'リップ'},
+    { name: 'チーク'},
+    ])

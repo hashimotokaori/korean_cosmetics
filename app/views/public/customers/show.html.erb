@@ -5,6 +5,7 @@
     </div>
   </div>
   <div class="row">
+    
     <div class="col-sm-3 px-sm-0 offset-sm-1">
       <h4>登録情報</h4>
     </div>
@@ -31,10 +32,18 @@
       </table>
     </div>
   </div>
-
   <div class="row">
     <div class="col-sm-3 px-sm-0 offset-sm-1"><h4>使いたいコスメ</h4></div>
     <div class="col-sm-8 px-sm-0">
+      <%= form_tag posts_path, method: :get, class: 'boards__searchForm' do %>
+      <%= select_tag :tag_id,
+        options_from_collection_for_select(Tag.all, :id, :name, params[:tag_id]),
+        {
+         prompt: 'タグで絞り込み検索',
+         onchange: 'submit(this.form);'
+        }
+      %>
+    <% end %>
        <tbody>
           <% @want_posts.each do |post| %>
             <tr>
@@ -57,6 +66,9 @@
         <% @used_posts.each do |post| %>
             <tr>
               <td class="align-middle"><%= post.created_at.strftime('%Y/%m/%d') %></td><br>
+              <!--<#% @post.tags.each do |tag| %>-->
+              <!--<td class="align-middle"><#%= tag.name %></td>-->
+              <!--<#% end %>-->
               <td class="img-wrap"><%= image_tag post.cosmetic.image_url %></td><br>
               <td class="align-middle"><%= link_to post.cosmetic.name, "#{post.cosmetic.url}" %><br><%= number_with_delimiter(post.cosmetic.price) %>円</td>
               <%= form_with model: @post, method: :patch do |f| %>

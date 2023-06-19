@@ -7,6 +7,12 @@
 
 <h2>使ったコスメ詳細</h2>
 <div>
+   <p>タグ :
+  <% @post.tags.each do |tag| %>
+    <%= tag.name %>
+  <% end %>
+  </p>
+
   <p>気になる理由：<%= @post.caption %></p>
   
   <p><div id="post_raty"></div></p>
