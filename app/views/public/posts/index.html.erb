@@ -6,9 +6,6 @@
     <p class="item-details card-text"><%= number_with_delimiter(post.cosmetic.price) %>円</p>
     </div>
   <div>
-    <%# @post.tags.each do |tag| %>
-    <%#= tag.name %>
-    <%# end %>
     <p>気になる理由：<%= post.caption %></p>
   </div>
   <%= link_to "使ったコスメに登録", post_update_review_path(post.id), class:"btn btn-success" %>
