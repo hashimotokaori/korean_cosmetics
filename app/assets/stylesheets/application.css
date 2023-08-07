@@ -1,3 +1,13 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h4{
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
 
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
